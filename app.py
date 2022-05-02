@@ -1,6 +1,7 @@
 """Main application file"""
 from flask import Flask
-app = Flask(__name__)
+app = Flask(__name__
+
 
 @app.route('/<random_string>')
 def returnBackwardsString(random_string):
