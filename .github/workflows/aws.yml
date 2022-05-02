@@ -34,8 +34,8 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v1
       with:
         # echo "aws secret is: ${{ secrets.AWS_ACCESS_KEY_ID }} finish."
-        # aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         role-to-assume: arn:aws:iam::245879739180:role/ecs-devops-sandbox-execution-role
         aws-region: eu-west-2
 
