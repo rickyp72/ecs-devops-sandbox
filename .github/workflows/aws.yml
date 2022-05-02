@@ -10,8 +10,8 @@ jobs:
     name: Deploy
     runs-on: ubuntu-
 
-    environment:
-      name: production
+    # environment:
+    #   name: production
 
     steps:
     - name: Check commit status
@@ -39,9 +39,9 @@ jobs:
         # echo "aws secret is: ${{ secrets.AWS_ACCESS_KEY_ID }} finish."
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        # role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: eu-west-2
-        role-session-name: MySandboxSession
+        # role-session-name: MySandboxSession
 
     - name: Login to Amazon ECR
       id: login-ecr
