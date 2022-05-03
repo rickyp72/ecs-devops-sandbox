@@ -1,1 +1,14 @@
-flask==1.0.2
+attrs==21.4.0
+click==7.1.2
+Flask==1.1.4
+iniconfig==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==2.0.1
+packaging==21.3
+pluggy==1.0.0
+py==1.11.0
+pyparsing==3.0.8
+pytest==7.1.2
+tomli==2.0.1
+Werkzeug==1.0.1
