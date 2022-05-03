@@ -67,7 +67,7 @@ jobs:
         image: ${{ steps.build-image.outputs.image }}
 
     -name: LOOK INSIDE TASK DEF FILE
-      rune: |
+      run: |
         cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
