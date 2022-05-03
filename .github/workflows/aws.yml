@@ -66,9 +66,9 @@ jobs:
         container-name: ecs-devops-sandbox
         image: ${{ steps.build-image.outputs.image }}
 
-    - name: LOOK INSIDE TASK DEF FILE
-      run: |
-        cat ${{ steps.task-def.outputs.task-definition }}
+    # - name: LOOK INSIDE TASK DEF FILE
+    #   run: |
+    #     cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
