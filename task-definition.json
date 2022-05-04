@@ -24,6 +24,16 @@
     "cpu": "256",
     "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecs-devops-sandbox-execution-role",
     "family": "ecs-devops-sandbox-task-definition",
-    "taskRoleArn": "aws_execution_role_arn",
-    "placementConstraints": []
+    "taskRoleArn": "$AWS_EXECUTION_ROLE_ARN",
+    "placementConstraints": [],
+    "environment": [
+       {
+         "name": "AWS_ECR",
+         "value": "aws_ecr_repo"
+       },
+       {
+         "name": "AWS_EXECUTION_ROLE_ARN",
+         "value": "aws_execution_role_arn"
+       }
+    ]
 }
