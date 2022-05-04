@@ -68,6 +68,7 @@ jobs:
 
     - name: LOOK INSIDE TASK DEF FILE
       run: |
+        sed -i 's/TASK_ROLE_ARN/${{ secrets.TASK_ROLE_ARN }}/g' ${{ steps.task-def.outputs.task-definition }}
         cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
