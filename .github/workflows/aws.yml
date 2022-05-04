@@ -37,7 +37,7 @@ jobs:
       env:
           AWS_EXECUTION_ROLE_ARN: ${{ secrets.AWS_EXECUTION_ROLE_ARN }}
       run: |
-          set AWS_EXECUTION_ROLE_ARN=${{ secrets.AWS_EXECUTION_ROLE_ARN }}
+          set AWS_EXECUTION_ROLE_ARN='${{ secrets.AWS_EXECUTION_ROLE_ARN }}'
           sed -i 's/aws_execution_role_arn/$AWS_EXECUTION_ROLE_ARN/g' task-definition.json
           cat task-definition.json
 
