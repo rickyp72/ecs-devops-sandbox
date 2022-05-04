@@ -40,7 +40,7 @@ jobs:
           echo ${{ secrets.AWS_EXECUTION_ROLE_ARN }}
           export AWS_EXECUTION_ROLE_ARN=${{ secrets.AWS_EXECUTION_ROLE_ARN }}
           echo $AWS_EXECUTION_ROLE_ARN
-          sed -i 's/aws_execution_role_arn/$AWS_EXECUTION_ROLE_ARN/g' task-definition.json
+          sed "s|aws_execution_role_arn|${AWS_EXECUTION_ROLE_ARN}|" task-definition.json
           cat task-definition.json
 
     - name: Configure AWS credentials
