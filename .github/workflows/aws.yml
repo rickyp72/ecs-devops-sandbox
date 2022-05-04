@@ -28,17 +28,17 @@ jobs:
           exit 1;
         fi
 
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
     - shell: bash
       env:
           TASK_ROLE_ARN: ${{ secrets.TASK_ROLE_ARN }}
       run: |
-          ls -ltr ${{ steps.task-def.outputs.task-definition }}
-          pwd
-          sed -i 's/TASK_ROLE_ARN/$TASK_ROLE_ARN/g' ${{ steps.task-def.outputs.task-definition }}
-          cat ${{ steps.task-def.outputs.task-definition }}
-
-    - name: Checkout
-      uses: actions/checkout@v1
+          ls -ltr
+          sed -i 's/TASK_ROLE_ARN/$TASK_ROLE_ARN/g' task-definition.json
+          cat task-definition.json
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
