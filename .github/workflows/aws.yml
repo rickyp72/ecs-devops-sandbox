@@ -32,13 +32,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+      #- name: Replace Secrets to Task Definition
     - shell: bash
       env:
-          TASK_ROLE_ARN: ${{ secrets.TASK_ROLE_ARN }}
+          AWS_EXECUTION_ROLE_ARN: ${{ secrets.AWS_EXECUTION_ROLE_ARN }}
       run: |
-          ls -ltr
-          echo ${{ secrets.TASK_ROLE_ARN }}
-          sed -i 's/task_role_arn/"${{ secrets.TASK_ROLE_ARN }}"/g' task-definition.json
+          sed -i 's/aws_execution_role_arn/$AWS_EXECUTION_ROLE_ARN/g' task-definition.json
           cat task-definition.json
 
     - name: Configure AWS credentials
