@@ -34,7 +34,7 @@ jobs:
           TASK_ROLE_ARN: ${{ secrets.TASK_ROLE_ARN }}
       run: |
           # sed -i 's/aws_ecr_repo/$AWS_ECR/g' task-definition.json
-          sed -i 's/aws_execution_role_arn/$TASK_ROLE_ARN/g' task-definition.json
+          sed -i 's/aws_execution_role_arn/$TASK_ROLE_ARN/g' ../../task-definition.json
           cat task-definition.json
 
     - name: Checkout
