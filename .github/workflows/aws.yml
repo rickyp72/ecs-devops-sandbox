@@ -37,7 +37,7 @@ jobs:
           TASK_ROLE_ARN: ${{ secrets.TASK_ROLE_ARN }}
       run: |
           ls -ltr
-          echo $TASK_ROLE_ARN
+          echo ${{ secrets.TASK_ROLE_ARN }}
           sed -i 's/TASK_ROLE_ARN/$TASK_ROLE_ARN/g' task-definition.json
           cat task-definition.json
 
