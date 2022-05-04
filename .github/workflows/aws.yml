@@ -38,7 +38,7 @@ jobs:
       run: |
           ls -ltr
           echo ${{ secrets.TASK_ROLE_ARN }}
-          sed -i 's/TASK_ROLE_ARN/$TASK_ROLE_ARN/g' task-definition.json
+          sed -i 's/task_role_arn/$TASK_ROLE_ARN/g' task-definition.json
           cat task-definition.json
 
     - name: Configure AWS credentials
