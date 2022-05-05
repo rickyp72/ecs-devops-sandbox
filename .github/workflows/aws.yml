@@ -43,8 +43,8 @@ jobs:
           # echo $AWS_EXECUTION_ROLE_ARN
 
           ls -ltr .
-          sed "s|aws_execution_role_arn|${AWS_EXECUTION_ROLE_ARN}|" task-definition.json.template > task-definition.json
-          sed "s|aws_task_role_arn|${AWS_TASK_ROLE_ARN}|" task-definition.json.template > task-definition.json
+          sed "s|aws_execution_role_arn|${AWS_EXECUTION_ROLE_ARN}|" task-definition.json.template > task-definition.json.template.1
+          sed "s|aws_task_role_arn|${AWS_TASK_ROLE_ARN}|" task-definition.json.template.1 > task-definition.json
           cat task-definition.json
 
     - name: Configure AWS credentials
