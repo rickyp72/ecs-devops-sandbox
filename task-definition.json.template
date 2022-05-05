@@ -28,8 +28,8 @@
     "placementConstraints": [],
     "environment": [
        {
-         "name": "AWS_ECR",
-         "value": "aws_ecr_repo"
+         "name": "AWS_TASK_ROLE_ARN",
+         "value": "aws_task_role_arn"
        },
        {
          "name": "AWS_EXECUTION_ROLE_ARN",
