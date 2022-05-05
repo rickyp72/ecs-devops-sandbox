@@ -2,6 +2,9 @@
 from flask import Flask
 app = Flask(__name__)
 
+@app.route('/')
+def returnString():
+    return "This container has been deployed. Type a new Endpoint i.e <url>/something "
 
 @app.route('/<random_string>')
 def returnBackwardsString(random_string):

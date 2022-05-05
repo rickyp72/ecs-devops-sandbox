@@ -12,21 +12,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Check commit status
-    #   id: commit-status
-    #   run: |
-    #     # Check the status of the Git commit
-    #     CURRENT_STATUS=$(curl --url https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/status --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | jq -r '.state');
-    #     echo "Current status is: $CURRENT_STATUS"
-    #     while [ "${CURRENT_STATUS^^}" = "PENDING" ];
-    #       do sleep 20;
-    #       CURRENT_STATUS=$(curl --url https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/status --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | jq -r '.state');
-    #     done;
-    #     echo "Current status is: $CURRENT_STATUS"
-    #     if [ "${CURRENT_STATUS^^}" = "FAILURE" ];
-    #       then echo "Commit status failed. Canceling execution";
-    #       exit 1;
-    #     fi
+    - name: Check commit status
+      id: commit-status
+      run: |
+        # Check the status of the Git commit
+        CURRENT_STATUS=$(curl --url https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/status --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | jq -r '.state');
+        echo "Current status is: $CURRENT_STATUS"
+        while [ "${CURRENT_STATUS^^}" = "PENDING" ];
+          do sleep 20;
+          CURRENT_STATUS=$(curl --url https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }}/status --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | jq -r '.state');
+        done;
+        echo "Current status is: $CURRENT_STATUS"
+        if [ "${CURRENT_STATUS^^}" = "FAILURE" ];
+          then echo "Commit status failed. Canceling execution";
+          exit 1;
+        fi
 
 
     - name: Checkout
@@ -47,9 +47,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        # role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         aws-region: eu-west-2
-        # role-session-name: MySandboxSession
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -77,9 +75,9 @@ jobs:
         container-name: ecs-devops-sandbox
         image: ${{ steps.build-image.outputs.image }}
 
-    - name: LOOK INSIDE TASK DEF FILE
-      run: |
-        cat ${{ steps.task-def.outputs.task-definition }}
+    # - name: LOOK INSIDE TASK DEF FILE
+    #   run: |
+    #     cat ${{ steps.task-def.outputs.task-definition }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
