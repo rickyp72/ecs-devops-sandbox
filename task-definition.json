@@ -5,8 +5,8 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "ecs-devops-sandbox",
-            "image": "ecs-devops-sandbox-repository:latest",
+            "name": "fargate_devops_sandbox_randb_dev",
+            "image": "fargate_devops_sandbox_randb_dev_task_definition:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [
@@ -23,7 +23,7 @@
     "memory": "512",
     "cpu": "256",
     "executionRoleArn": "aws_execution_role_arn",
-    "family": "ecs-devops-sandbox-task-definition",
+    "family": "fargate_devops_sandbox_randb_dev_app",
     "taskRoleArn": "aws_task_role_arn",
     "placementConstraints": []
 }
