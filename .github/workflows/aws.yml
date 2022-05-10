@@ -72,7 +72,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition.json
-        container-name: ecs-devops-sandbox
+        container-name: fargate_devops_sandbox_randb_dev_task_definition
         image: ${{ steps.build-image.outputs.image }}
 
     - name: LOOK INSIDE TASK DEF FILE
