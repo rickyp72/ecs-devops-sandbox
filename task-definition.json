@@ -5,7 +5,7 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "fargate_devops_sandbox_randb_dev",
+            "name": "fargate_devops_sandbox_randb_dev_task_definition",
             "image": "fargate_devops_sandbox_randb_dev_task_definition:latest",
             "resourceRequirements": null,
             "essential": true,
