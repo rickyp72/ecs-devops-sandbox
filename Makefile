@@ -52,7 +52,7 @@ endif
 #################################### Functions ###########################################
 # Function to check if package is installed else install it.
 define install-pkg-if-not-exist
-	@for pkg in ${2} ${3}; do \
+	@for pkg in ${1}; do \
 		if ! command -v "$${pkg}" >/dev/null 2>&1; then \
 			echo "installing $${pkg}"; \
 			$(PYTHON) -m pip install $${pkg}; \
@@ -77,7 +77,7 @@ define add-gitignore
 	curl -sL https://www.gitignore.io/api/$${PKGS} > .gitignore
 endef
 
-.PHONY: all
+# .PHONY: all
 help:
 	@$(PYTHON) -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
@@ -136,6 +136,7 @@ clean-docker:  ## Remove docker image
 
 lint: ## Check style with `flake8` and `mypy`
 	$(call install-pkg-if-not-exist,flake8)
+
 	@$(PYTHON) -m flake8 app.py
 # find . -name "*.py" | xargs pre-commit run -c .configs/.pre-commit-config.yaml flake8 --files
 # @$(PYTHON) -m mypy
@@ -145,7 +146,8 @@ checkmake:  ## Check Makefile style with `checkmake`
 	docker run --rm -v $(CURDIR):/data cytopia/checkmake Makefile
 
 formatter: ## Format style with `black` and sort imports with `isort`
-	$(call install-pkg-if-not-exist,black,isort)
+	$(call install-pkg-if-not-exist,black)
+	$(call install-pkg-if-not-exist,isort)
 	@isort -m 3 -tc -rc .
 	@black .
 # 	find . -name "*.py" | xargs pre-commit run -c .configs/.pre-commit-config.yaml isort --files
