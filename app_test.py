@@ -1,6 +1,7 @@
 """Unit test file for app.py"""
-from app import returnBackwardsString
 import unittest
+
+from app import returnBackwardsString
 
 
 class TestApp(unittest.TestCase):
@@ -11,6 +12,7 @@ class TestApp(unittest.TestCase):
         random_string = "This is my test string"
         random_string_reversed = "gnirts tset ym si sihT"
         self.assertEqual(random_string_reversed, returnBackwardsString(random_string))
+
 
 if __name__ == "__main__":
     unittest.main()

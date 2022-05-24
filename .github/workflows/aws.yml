@@ -32,6 +32,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+    - name: Tests
+      run: make lint
+
       #- name: Replace Secrets to Task Definition
     - shell: bash
       env:
