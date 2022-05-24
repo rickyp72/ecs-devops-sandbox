@@ -33,7 +33,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Tests
-      run: make lint
+      run: make test
 
       #- name: Replace Secrets to Task Definition
     - shell: bash

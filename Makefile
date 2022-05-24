@@ -155,5 +155,6 @@ formatter: ## Format style with `black` and sort imports with `isort`
 # ---------------------------------------- Tests -----------------------------------------
 .PHONY: test
 test: ## Run tests quickly with pytest
+	$(call install-pkg-if-not-exist,pytest)
 	$(PYTHON) -m pytest -sv
 	# $(PYTHON) -m nose -sv
