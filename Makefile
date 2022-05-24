@@ -135,7 +135,7 @@ clean-docker:  ## Remove docker image
 # -------------------------------------- Code Style  -------------------------------------
 
 lint: ## Check style with `flake8` and `mypy`
-    $(call install-pkg-if-not-exist,flake8)
+	$(call install-pkg-if-not-exist,flake8)
 	@$(PYTHON) -m flake8 app.py
 # find . -name "*.py" | xargs pre-commit run -c .configs/.pre-commit-config.yaml flake8 --files
 # @$(PYTHON) -m mypy
