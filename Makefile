@@ -6,6 +6,7 @@ DATE_ID := $(shell date +"%y.%m.%d")
 PACKAGE_NAME := $(shell basename $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 .DEFAULT_GOAL := help
 
+
 # UPDATE ME
 DOCKER_IMAGE = "$(USER)/$(shell basename $(CURDIR))"
 
