@@ -91,6 +91,19 @@ boilerplate:  ## Add simple 'README.md' and .gitignore
 venv:  ## Create virtualenv environment on local directory.
 	@$(create-venv)
 
+pyenv-venv: ## Setup pyenv virtualenv environment
+	pyenv local 3.8.5
+	pyenv exec pip install virtualenv
+	pyenv exec virtualenv venv
+	@echo "Source virtual environment before tinkering"
+	@echo "Manually run: \`source venv/bin/activate\`"
+
+dev-install: ## install dev packages
+	python -m pip install .[dev];
+
+installs: ## install from requirements file
+	python -m pip install -r requirements.txt
+
 # -------------------------------------- Project Execution -------------------------------
 run-in-docker:  ## Run python app in a docker container
 # docker run --rm -ti --volume "$(CURDIR)":/app $(DOCKER_IMAGE) \
