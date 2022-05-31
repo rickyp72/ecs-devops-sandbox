@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - github-docker-registry-test
 
 name: Deploy to Amazon ECS
 
@@ -82,7 +83,7 @@ jobs:
     - name: Build the hello-world Docker image
       run: |
         docker build . --tag ghcr.io/rickyp72/hello-world:latest
-        docker run ghcr.io/rickyp72/hello-world:latest
+        # docker run ghcr.io/rickyp72/hello-world:latest
         docker push ghcr.io/rickyp72/hello-world:latest
 
 
