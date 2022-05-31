@@ -32,8 +32,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Tests
-      run: make test
+    # - name: Tests
+    #   run: make test
 
       #- name: Replace Secrets to Task Definition
     - shell: bash
