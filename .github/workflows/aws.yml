@@ -82,7 +82,7 @@ jobs:
 
     - name: Build the hello-world Docker image
       run: |
-        docker build . --tag ghcr.io/rickyp72/hello-world:latest
+        docker build . --tag ghcr.io/${{ github.actor }}/hello-world:latest
         # docker run ghcr.io/rickyp72/hello-world:latest
         docker push ghcr.io/rickyp72/hello-world:latest
 
