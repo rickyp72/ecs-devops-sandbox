@@ -6,7 +6,7 @@
     "containerDefinitions": [
         {
             "name": "fargate_devops_sandbox_randb_dev_app",
-            "image": "fargate_devops_sandbox_randb_dev_app:latest", // this gets replaced by GH Actions
+            "image": "fargate_devops_sandbox_randb_dev_app:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [
@@ -23,7 +23,7 @@
     "memory": "512",
     "cpu": "256",
     "executionRoleArn": "aws_execution_role_arn",
-    "family": "fargate_devops_sandbox_randb_dev_app", // set task def name here.
+    "family": "fargate_devops_sandbox_randb_dev_app",
     "taskRoleArn": "aws_task_role_arn",
     "placementConstraints": []
 }
