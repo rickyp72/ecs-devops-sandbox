@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - wellbeing-deployment-test
 
 name: Deploy to Amazon ECS
 
