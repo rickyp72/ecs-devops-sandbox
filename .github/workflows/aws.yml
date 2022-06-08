@@ -86,7 +86,7 @@ jobs:
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: task-definition.json
+        task-definition: fargate_devops_sandbox_randb-dev_task_definition:2
         service: fargate_devops_sandbox_randb_dev_service
         cluster: fargate_devops_sandbox_randb_dev_cluster
         wait-for-service-stability: true
