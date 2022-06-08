@@ -6,7 +6,7 @@
     "containerDefinitions": [
         {
             "name": "fargate_devops_sandbox_randb_dev_app",
-            "image": "fargate_devops_sandbox_randb_dev_app:latest",
+            "image": "fargate_devops_sandbox_randb-dev:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [
